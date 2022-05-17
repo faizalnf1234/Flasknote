@@ -141,7 +141,7 @@ def ajaxfindnote():
             q2 = q
             cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             # cur.execute("SELECT * FROM mynotes44 WHERE title_note LIKE %s",(q,))
-            cur.execute("SELECT * FROM mynotes44 WHERE title_note LIKE %s AND html_note LIKE %s",(q,q2))
+            cur.execute("SELECT * FROM mynotes44 WHERE title_note LIKE %s OR html_note LIKE %s",(q,q2))
             data = cur.fetchall()
             return jsonify(data)
         except Exception as e:
